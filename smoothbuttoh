@@ -2,7 +2,7 @@
 // @name         smooth_buttoh
 // @namespace    per4atka
 // @version      1.0
-// @description  smoothly change width and height when hovering over Quick Play buttan :D
+// @description  Smoothly change width and height when hovering over Quick Play buttan :D
 // @author       per4atka (dc: per4at_ka)
 // @match        *://evades.io/*
 // @match        *://eu.evades.io/*
@@ -11,6 +11,7 @@
 // @homepageURL  https://github.com/RocketLaunchet
 // @supportURL   https://github.com/RocketLaunchet/issues
 // @license      MIT
+// @updateURL    https://cdn.jsdelivr.net/gh/RocketLaunchet/rl-evades/smoothbuttoh.js
 // ==/UserScript==
 
 (function() {
