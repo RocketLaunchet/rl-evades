@@ -1,0 +1,37 @@
+// ==UserScript==
+// @name         smooth_buttoh
+// @namespace    per4atka
+// @version      1.0
+// @description  smoothly change width and height when hovering over Quick Play buttan :D
+// @author       per4atka (dc: per4at_ka)
+// @match        *://evades.io/*
+// @match        *://eu.evades.io/*
+// @match        *://evades.online/*
+// @grant        none
+// @homepageURL  https://github.com/RocketLaunchet
+// @supportURL   https://github.com/RocketLaunchet/issues
+// @license      MIT
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    const initialWidth = 235;
+    const initialHeight = 65;
+    const transitionDuration = 300;
+
+    document.querySelector('.quick-play-button').addEventListener('mouseover', function() {
+        const targetWidth = 265;
+        const targetHeight = 75;
+
+        this.style.transition = `width ${transitionDuration}ms, height ${transitionDuration}ms`;
+        this.style.width = `${targetWidth}px`;
+        this.style.height = `${targetHeight}px`;
+    });
+
+    document.querySelector('.quick-play-button').addEventListener('mouseout', function() {
+        this.style.transition = `width ${transitionDuration}ms, height ${transitionDuration}ms`;
+        this.style.width = `${initialWidth}px`;
+        this.style.height = `${initialHeight}px`;
+    });
+})();
