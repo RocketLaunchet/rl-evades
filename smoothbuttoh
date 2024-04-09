@@ -17,22 +17,36 @@
 (function() {
     'use strict';
 
+    const stylesManager = {
+    styles: [],
+    addStyle(style) {
+      this.styles.push(style);
+    },
+    patch() {
+      const style = document.createElement('style');
+      style.innerHTML = this.styles.join(' ');
+      style.id = 'estyler';
+      document.head.appendChild(style);
+    }
+  }
+
+
     const initialWidth = 235;
     const initialHeight = 65;
     const transitionDuration = 300;
 
-    document.querySelector('.quick-play-button').addEventListener('mouseover', function() {
-        const targetWidth = 265;
-        const targetHeight = 75;
+stylesManager.addStyle(
+`
+.quick-play-button {
+transition: width ${transitionDuration}ms, height ${transitionDuration}ms
+}
 
-        this.style.transition = `width ${transitionDuration}ms, height ${transitionDuration}ms`;
-        this.style.width = `${targetWidth}px`;
-        this.style.height = `${targetHeight}px`;
-    });
+  .quick-play-button:hover {
+    width: ${initialWidth}px;
+    width: ${initialHeight}px;
+  }
+`
+)
 
-    document.querySelector('.quick-play-button').addEventListener('mouseout', function() {
-        this.style.transition = `width ${transitionDuration}ms, height ${transitionDuration}ms`;
-        this.style.width = `${initialWidth}px`;
-        this.style.height = `${initialHeight}px`;
-    });
+stylesManager.patch()
 })();
